@@ -14,11 +14,9 @@ export const useGetPokemons = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<AxiosError | null>(null)
 
-  useEffect(() => {
-    setError(null)
-    setLoading(true)
+  const getPokemons = () => {
     client
-      .get("/pokemon")
+      .get<PokemonApiResponse>("/pokemon")
       .then((res) => {
         setData(res.data)
       })
@@ -28,22 +26,18 @@ export const useGetPokemons = () => {
       .finally(() => {
         setLoading(false)
       })
+  }
+
+  useEffect(() => {
+    setError(null)
+    setLoading(true)
+    getPokemons()
   }, [])
 
   const refetch = useCallback(() => {
     setError(null)
     setLoading(true)
-    client
-      .get("/pokemon")
-      .then((res) => {
-        setData(res.data)
-      })
-      .catch((err: AxiosError) => {
-        setError(err)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    getPokemons()
   }, [])
 
   return { data, loading, error, refetch }
