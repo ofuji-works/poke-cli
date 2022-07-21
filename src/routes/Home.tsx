@@ -1,7 +1,8 @@
-import React from "react"
+import { FC } from "react"
+
 import { EnhancedPokemonList } from "@/features/pokemon"
 
-const Home = () => {
+const Home: FC = () => {
   return <EnhancedPokemonList />
 }
 

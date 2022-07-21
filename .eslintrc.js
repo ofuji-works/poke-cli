@@ -1,6 +1,6 @@
 module.exports = {
-  env: ["browser", "node", "es2021"],
-  parser: ["@typescript-eslint/parser"],
+  env: { browser: true, node: true, es2021: true },
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -15,13 +15,14 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
-    "plugin:impoer/typescript",
+    "plugin:import/typescript",
   ],
   rules: {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "import/no-duplicates": "error",
     "react/prop-types": "off",
+    "import/no-unresolved": "off",
+    "import/no-duplicates": "error",
     "import/order": [
       "error",
       {

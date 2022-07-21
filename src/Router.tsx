@@ -1,5 +1,5 @@
-import React, { lazy, Suspense } from "react"
-import { BrowserRouter, useRoutes, RouteObject, Outlet } from "react-router-dom"
+import { lazy, Suspense } from "react"
+import { useRoutes, RouteObject, Outlet } from "react-router-dom"
 
 const Home = lazy(() => import("@/routes/Home"))
 

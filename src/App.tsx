@@ -1,6 +1,7 @@
-import React, { FC } from "react"
-import { Router } from "./Router"
+import { FC } from "react"
 import { BrowserRouter } from "react-router-dom"
+
+import { Router } from "./Router"
 
 const App: FC = () => {
   return (

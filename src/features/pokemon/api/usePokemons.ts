@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react"
+
 import { client, AxiosError } from "@/utils"
 
 type PokemonApiResponse = {
