@@ -5,6 +5,5 @@ import { PokemonList } from "../component"
 
 export const EnhancedPokemonList: FC = () => {
   const { data } = useGetPokemons()
-  console.log(data)
-  return <PokemonList />
+  return <PokemonList pokemons={data} />
 }

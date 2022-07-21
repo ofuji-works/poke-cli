@@ -2885,5 +2885,9 @@ export const localeToJaForPokemonName = (name: string) => {
       en: "Volcanion",
     },
   ]
-  return locale.find((lang) => lang.en === name)?.ja
+  return locale.find((lang) => {
+    console.log(lang.en)
+    console.log(name)
+    return lang.en === name
+  })?.ja
 }

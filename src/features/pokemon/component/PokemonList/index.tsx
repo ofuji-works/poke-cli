@@ -1,7 +1,29 @@
 import { FC } from "react"
 
-type Props = {}
+import { PokemonListItem } from "../PokemonListItem"
 
-export const PokemonList: FC = () => {
-  return <></>
+import type { Pokemon } from "../../types"
+
+import "./style.scss"
+
+type Props = {
+  pokemons: Pokemon[]
+}
+
+export const PokemonList: FC<Props> = ({ pokemons }) => {
+  return (
+    <section className='content'>
+      <div className='content__list'>
+        {pokemons.map((pokemon, index) => {
+          return (
+            <PokemonListItem
+              key={`key-${pokemon.name}`}
+              id={index + 1}
+              {...pokemon}
+            />
+          )
+        })}
+      </div>
+    </section>
+  )
 }

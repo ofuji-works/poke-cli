@@ -1,17 +1,11 @@
 import { useCallback, useEffect, useState } from "react"
 
+import type { Pokemon, PokemonApiResponse } from "../types"
+
 import { client, AxiosError } from "@/utils"
 
-type PokemonApiResponse = {
-  total: number
-  results: {
-    name: string
-  }[]
-  next: string
-}
-
 export const useGetPokemons = () => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState<Pokemon[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<AxiosError | null>(null)
 
@@ -19,7 +13,7 @@ export const useGetPokemons = () => {
     client
       .get<PokemonApiResponse>("/pokemon")
       .then((res) => {
-        setData(res.data)
+        setData(res.data.results)
       })
       .catch((err: AxiosError) => {
         setError(err)
