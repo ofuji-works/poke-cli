@@ -1,8 +1,6 @@
 export type PokemonApiResponse = {
   total: number
-  results: {
-    name: string
-  }[]
+  results: Pokemon[]
   next: string
 }
 

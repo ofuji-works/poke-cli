@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react"
 
 import { Button } from "@/components"
 
-describe("render a Button", () => {
+describe("components/Button test", () => {
   const mockFn = jest.fn()
 
   beforeEach(() => {
