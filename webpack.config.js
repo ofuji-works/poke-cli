@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const TerserWebpackPlugin = require("terser-webpack-plugin")
 
 const dist = path.resolve(__dirname, "dist")
+const public = path.resolve(__dirname, "public")
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -59,7 +60,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: { directory: dist },
+    static: { directory: public },
     port: 3000,
   },
   optimization: {
